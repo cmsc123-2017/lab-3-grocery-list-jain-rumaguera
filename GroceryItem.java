@@ -31,20 +31,17 @@ class GroceryItem {
       return false;
     }
   }
+	
   public boolean bought(){
     return this.isBought = true;
   }
   
   public boolean isRemove(){
    boolean remove = true;
-   return remove;
-  }
-  public int addQuantity(){
-   return quantity;
+     return remove;
   }
   
   public boolean isFound(){
     return this.itemFound = true;
-  }
-  
- }
+  }	
+}
