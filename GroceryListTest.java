@@ -156,8 +156,13 @@ public class GroceryListTest extends TestCase {
     newList.add(shampoo);
     newList.add(conditioner);
   
-    newList.reduceItemQuantity("Soap", 0, 2);
+    newList.reduceItemQuantity("Soap", 0, 0);
     assertEquals(soap.quantity, 3);
+    newList.reduceItemQuantity("Shampoo", 1, 1);
+    assertEquals(shampoo.quantity, 4);
+    newList.reduceItemQuantity("Conditioner", 10, 2);
+    assertEquals(conditioner.quantity, 0);
+    
   
   }
   
@@ -177,9 +182,22 @@ public class GroceryListTest extends TestCase {
     newList.add(soap);
     newList.add(shampoo);
     newList.add(conditioner);
+    newList.add(laptop);
+    newList.add(mouse);
+    newList.add(earphones);
     
     assertEquals(newList.reduceQuantity("Soap", 1), true);
+    assertEquals(newList.reduceQuantity("Laptop", 3), true);
+    assertEquals(newList.reduceQuantity("Earphones", 1), true);
+    assertEquals(newList.reduceQuantity("Mouse", 1), true);
+    assertEquals(newList.reduceQuantity("Conditioner", 0), true);
+    
     assertEquals(soap.quantity, 2);
+    assertEquals(laptop.quantity, 3);
+    assertEquals(earphones.quantity, 4);
+    assertEquals(mouse.quantity, 0);
+    assertEquals(conditioner.quantity, 10);
+    
   
   } 
 }
