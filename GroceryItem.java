@@ -2,6 +2,7 @@ class GroceryItem {
   String name;
   int quantity;
   boolean isBought = false;
+  boolean itemFound = false;
   
   GroceryItem(String name, int quantity) {
     this.name = name;
@@ -30,4 +31,20 @@ class GroceryItem {
       return false;
     }
   }
-}
+  public boolean bought(){
+    return this.isBought = true;
+  }
+  
+  public boolean isRemove(){
+   boolean remove = true;
+   return remove;
+  }
+  public int addQuantity(){
+   return quantity;
+  }
+  
+  public boolean isFound(){
+    return this.itemFound = true;
+  }
+  
+ }
