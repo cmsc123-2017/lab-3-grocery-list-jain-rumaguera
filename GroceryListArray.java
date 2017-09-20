@@ -31,28 +31,21 @@ class GroceryListArray implements IGroceryList {
   
   // TEMPLATE
   /*  Fields:
-   *    this.max
-   *    this.items   --GroceryItem[]
-   *    this.size
-   *    this.itemName 
-   *    this.quantity 
-   * 
-   *  Methods:
-   *    this.add
-   *    this.indexOf
-   *    this.remove
-   *    this.markAsBought
-   *    this.display
-   *    this.totalQuantity
-   * 
-   *  Methods on this.items[i]:
-   *    this.items[i].addQuantity()
-   *    this.items[i].equals()
-   *    this.items[i].toString()
-   *    this.items[i].addItems()
+        ...this.max...           --int
+        ...this.items...         --GroceryItem[]
+        ...this.size...          --int
+        ...this.itemName...      --String
+        ...this.quantity...      --int
+     
+      Methods:
+        ...this.add...               --boolean
+        ...this.indexOf...           --int
+        ...this.remove...            --boolean
+        ...this.markAsBought...      --boolean
+        ...this.display...           --void
+        ...this.totalQuantity...     --int
    */
   
-   
   // String -> int
   // Given the name of a GroceryItem, returns the
   // corresponding GroceryItem index from the list. If it is not in the list,
@@ -66,6 +59,23 @@ class GroceryListArray implements IGroceryList {
     
     return -1;
   }
+  
+  // TEMPLATE
+  /*  Fields:
+        ...this.max...           --int
+        ...this.items...         --GroceryItem[]
+        ...this.size...          --int
+        ...this.itemName...      --String
+        ...this.quantity...      --int
+     
+      Methods:
+        ...this.add...               --boolean
+        ...this.indexOf...           --int
+        ...this.remove...            --boolean
+        ...this.markAsBought...      --boolean
+        ...this.display...           --void
+        ...this.totalQuantity...     --int
+   */
   
   //String -> boolean
   //Returns true if this item is removed given its name
@@ -85,8 +95,27 @@ class GroceryListArray implements IGroceryList {
      
      this.size--;
      return itemFound;
-  }    
+  }
   
+  // TEMPLATE
+  /*  Fields:
+        ...this.max...           --int
+        ...this.items...         --GroceryItem[]
+        ...this.size...          --int
+        ...this.itemName...      --String
+        ...this.quantity...      --int
+     
+      Methods:
+        ...this.add...               --boolean
+        ...this.indexOf...           --int
+        ...this.remove...            --boolean
+        ...this.markAsBought...      --boolean
+        ...this.display...           --void
+        ...this.totalQuantity...     --int
+   */
+  
+  //-> int
+  // Returns the index of the item given this GroceryItem item.
   int indexOfAgain(GroceryItem item) {
     for (int i = 0; i < this.size; i++) {
       if (item.equals(items[i])) {
@@ -97,7 +126,29 @@ class GroceryListArray implements IGroceryList {
     return -1;
   }
   
-  
+  // TEMPLATE
+  /*  Fields:
+        ...this.max...           --int
+        ...this.items...         --GroceryItem[]
+        ...this.size...          --int
+        ...this.itemName...      --String
+        ...this.quantity...      --int
+     
+      Methods:
+        ...this.add...               --boolean
+        ...this.indexOf...           --int
+        ...this.remove...            --boolean
+        ...this.markAsBought...      --boolean
+        ...this.display...           --void
+        ...this.totalQuantity...     --int
+      Methods on GoceryItem item.
+        ...item.addQuantity()...        --void
+        ...item.toString()...           --String
+        ...item.equals...               --boolean
+        ...item.bought()...             --boolean
+        ...item.isRemove()...           --boolean
+        ...item.isFound()...            --boolean
+   */
   
   // String -> boolean
   //Determines if an item is bought given its name
@@ -111,11 +162,46 @@ class GroceryListArray implements IGroceryList {
     return false;
   }
   
+  // TEMPLATE
+  /*  Fields:
+        ...this.max...           --int
+        ...this.items...         --GroceryItem[]
+        ...this.size...          --int
+        ...this.itemName...      --String
+        ...this.quantity...      --int
+     
+      Methods:
+        ...this.add...               --boolean
+        ...this.indexOf...           --int
+        ...this.remove...            --boolean
+        ...this.markAsBought...      --boolean
+        ...this.display...           --void
+        ...this.totalQuantity...     --int
+   */
+  //->void
+  //Displays the array of grocery items.
   public void display() {
     for (int i = 0; i < this.size; i++) {
       System.out.println(items[i]);
     }
   }
+  
+  // TEMPLATE
+  /*  Fields:
+        ...this.max...           --int
+        ...this.items...         --GroceryItem[]
+        ...this.size...          --int
+        ...this.itemName...      --String
+        ...this.quantity...      --int
+     
+      Methods:
+        ...this.add...               --boolean
+        ...this.indexOf...           --int
+        ...this.remove...            --boolean
+        ...this.markAsBought...      --boolean
+        ...this.display...           --void
+        ...this.totalQuantity...     --int
+   */
   
   // -> int
   // Returns the number of this individual items in the Grocery List
@@ -127,41 +213,85 @@ class GroceryListArray implements IGroceryList {
     return total;
    }
      
+  // TEMPLATE
+  /*  Fields:
+        ...this.max...           --int
+        ...this.items...         --GroceryItem[]
+        ...this.size...          --int
+        ...this.itemName...      --String
+        ...this.quantity...      --int
      
+      Methods:
+        ...this.add...               --boolean
+        ...this.indexOf...           --int
+        ...this.remove...            --boolean
+        ...this.markAsBought...      --boolean
+        ...this.display...           --void
+        ...this.totalQuantity...     --int
+   */   
    
-//String, int, int ->
-//Checks if item is is the list
-//if the quantity of item is 0, removes it from the list
-   void itemQuantityCheck(String name, int itemIndex, int quantity){
-     if(quantity < 1){
-       remove(name);
+  //String, int, int -> 
+  //Checks if item is is the list
+  //if the quantity of item is 0, removes it from the list
+    void itemQuantityCheck(String name, int itemIndex, int quantity){
+      if(quantity < 1){
+        remove(name);
      }
    }
   
-//String, int, int ->
-//Subtracts desired quantity to the original quantity of the item
-   void reduceItemQuantity(String name, int quantity, int itemIndex){
+  // TEMPLATE
+  /*  Fields:
+        ...this.max...           --int
+        ...this.items...         --GroceryItem[]
+        ...this.size...          --int
+        ...this.itemName...      --String
+        ...this.quantity...      --int
+     
+      Methods:
+        ...this.add...               --boolean
+        ...this.indexOf...           --int
+        ...this.remove...            --boolean
+        ...this.markAsBought...      --boolean
+        ...this.display...           --void
+        ...this.totalQuantity...     --int
+   */
+    
+  //String, int, int -> 
+  //Subtracts desired quantity to the original quantity of the item
+  void reduceItemQuantity(String name, int quantity, int itemIndex){
      items[itemIndex].quantity = items[itemIndex].quantity - quantity;
      itemQuantityCheck(name, quantity, items[itemIndex].quantity);
    }
- //String, int -> boolean
- //Returns true if the item's quantity was sucessfully reduced,
- //else return false
+  
+  // TEMPLATE
+  /*  Fields:
+        ...this.max...           --int
+        ...this.items...         --GroceryItem[]
+        ...this.size...          --int
+        ...this.itemName...      --String
+        ...this.quantity...      --int
+     
+      Methods:
+        ...this.add...               --boolean
+        ...this.indexOf...           --int
+        ...this.remove...            --boolean
+        ...this.markAsBought...      --boolean
+        ...this.display...           --void
+        ...this.totalQuantity...     --int
+   */
+  
+  //String, int -> boolean
+  //Returns true if the item's quantity was sucessfully reduced,
+  //else return false
    
-   boolean reduceQuantity(String itemName, int quantity){
-     int itemIndex = indexOf(itemName);
+  boolean reduceQuantity(String itemName, int quantity){
+    int itemIndex = indexOf(itemName);
       if(itemIndex >= 0){
-       reduceItemQuantity(itemName, quantity, itemIndex);
-         return true;
+        reduceItemQuantity(itemName, quantity, itemIndex);
+          return true;
        }
       else{
-         return false;
+          return false;
       }
     }
-   
-    public void display() {
-    for (int i = 0; i < this.size; i++) {
-      System.out.println(items[i]);
-    }
-   }
-}    
+}
